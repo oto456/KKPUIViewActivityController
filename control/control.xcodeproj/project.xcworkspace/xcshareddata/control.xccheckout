@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EDC5D4F3-35CE-4569-9641-CFF279B0E069</string>
+	<key>IDESourceControlProjectName</key>
+	<string>control</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>67880F236B756E81D06EF1D8A9D4154BB488CF18</key>
+		<string>git.ucweb.local:ninegameclients/ninegameclient-ios.git</string>
+		<key>C2B0E12B225CC2AA910A7A62CBAD7E50FC0A2BBF</key>
+		<string>https://github.com/oto456/KKPUIViewActivityController</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>control/control.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>67880F236B756E81D06EF1D8A9D4154BB488CF18</key>
+		<string>../../../..</string>
+		<key>C2B0E12B225CC2AA910A7A62CBAD7E50FC0A2BBF</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/oto456/KKPUIViewActivityController</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C2B0E12B225CC2AA910A7A62CBAD7E50FC0A2BBF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>67880F236B756E81D06EF1D8A9D4154BB488CF18</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C2B0E12B225CC2AA910A7A62CBAD7E50FC0A2BBF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>oto456</string>
+		</dict>
+	</array>
+</dict>
+</plist>

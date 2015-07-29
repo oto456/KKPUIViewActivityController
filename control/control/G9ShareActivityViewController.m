@@ -1,10 +1,15 @@
-//
-//  G9ShareActivityViewController.m
-//  control
-//
-//  Created by kakapo on 15/7/20.
-//  Copyright (c) 2015年 kakapo. All rights reserved.
-//
+/*
+ *****************************************************************************
+ * Copyright (C) 2005-2014 UC Mobile Limited. All Rights Reserved
+ * File			: G9ShareActivityViewController
+ *
+ * Description	: G9Share
+ *
+ * Author		: liutf@ucweb.com
+ *
+ * History		: Creation, 7/20/15, liutf@ucweb.com, Create the file
+ ******************************************************************************
+ **/
 
 
 
@@ -14,11 +19,12 @@
 #define headLabelFont [UIFont systemFontOfSize:9.0]
 
 
-#define ActivityHeight (([UIScreen mainScreen].bounds.size.width - 60) / 5 + 15)
+#define ActivityHeight (([UIScreen mainScreen].bounds.size.width - 60) / 5 + 25)
+#define ActivityWeight (ActivityHeight - 20)
 #define CellHeiht (ActivityHeight + 20)
 static const CGFloat ActivitySpace = 10;
 static const CGFloat HeadHeight = 15;
-static const CGFloat CancelButtonHeight = 30;
+static const CGFloat CancelButtonHeight = 40;
 //static const CGFloat CellHeiht = 100;
 
 
@@ -75,7 +81,7 @@ static const CGFloat CancelButtonHeight = 30;
         self.windowLevel = UIWindowLevelAlert;
         // 这里，不能设置UIWindow的alpha属性，会影响里面的子view的透明度，这里我们用一张透明的图片
         // 设置背影半透明
-        self.backgroundColor = [UIColor colorWithRed:20 green:0 blue:0 alpha:0.1];
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -98,8 +104,9 @@ static const CGFloat CancelButtonHeight = 30;
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.backgroundColor = [UIColor clearColor];
     self.containerView = [[UIView alloc] initWithFrame:(CGRect){0, self.bounds.size.height - CancelButtonHeight - _tableView.bounds.size.height - HeadHeight, self.bounds.size.width, self.tableView.bounds.size.height + CancelButtonHeight + HeadHeight }];
-    self.containerView.backgroundColor = [UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:0.8];
+    self.containerView.backgroundColor = [UIColor colorWithRed:255.0 green:255.0 blue:255.0 alpha:0.9];
     [self.containerView addSubview:self.tableView];
 
     
@@ -110,14 +117,12 @@ static const CGFloat CancelButtonHeight = 30;
     title.font = headLabelFont;
     [headView addSubview:title];
     
-    self.btn_cancel = [[UIButton alloc] initWithFrame:(CGRect){-1, self.containerView.bounds.size.height - CancelButtonHeight - 2, self.containerView.bounds.size.width + 2, CancelButtonHeight + 2}];
+    self.btn_cancel = [[UIButton alloc] initWithFrame:(CGRect){-1, self.containerView.bounds.size.height - CancelButtonHeight - 3, self.containerView.bounds.size.width + 3, CancelButtonHeight + 2}];
     [self.btn_cancel setTitle:@"取消" forState:UIControlStateNormal];
     self.btn_cancel.titleLabel.font = [UIFont systemFontOfSize:13.0];
     self.btn_cancel.opaque = NO;
     self.btn_cancel.backgroundColor = [UIColor whiteColor];
     [self.btn_cancel setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    self.btn_cancel.layer.borderColor  = [[UIColor grayColor] CGColor];
-    self.btn_cancel.layer.borderWidth = 0.5; //要设置的描边宽
     [self.btn_cancel addTarget:self action:@selector(cancelButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.containerView addSubview:headView];
@@ -130,7 +135,7 @@ static const CGFloat CancelButtonHeight = 30;
 {
     self.interateView = [[UIView alloc] initWithFrame:self.bounds];
     [self.interateView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelButtonClick:)]];
-    self.interateView.backgroundColor = [UIColor clearColor];
+    self.interateView.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.2];
     [self addSubview:self.interateView];
 }
 
@@ -138,32 +143,16 @@ static const CGFloat CancelButtonHeight = 30;
 - (void)configScrollview
 {
     _scrollviewsArray = [[NSMutableArray alloc] initWithCapacity:2];
-    UIScrollView *actionScrollView = [[UIScrollView alloc] initWithFrame:(CGRect){0, 0, self.bounds.size.width, CellHeiht}];
-    CGFloat width = MAX(self.bounds.size.width, _actionActivities.count * (ActivitySpace + ActivityHeight));
-//    [actionScrollView setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-    actionScrollView.contentSize = (CGSize){width, CellHeiht};
-    actionScrollView.showsHorizontalScrollIndicator = NO;
-    actionScrollView.userInteractionEnabled = YES;
-    for (int i = 0; i < _actionActivities.count; i++) {
-        G9shareBaseActivity *activity = _actionActivities[i];
-        activity.frame = (CGRect){ActivitySpace + i * (ActivitySpace + ActivityHeight), 10, activity.bounds.size.width, activity.bounds.size.height};
-        activity.block = ^(){
-            [self dismissWithAnimation];
-        };
-        [actionScrollView addSubview:activity];
-    }
-    [_scrollviewsArray addObject:actionScrollView];
     
     if (_shareActivities) {
         UIScrollView *shareScrollView = [[UIScrollView alloc] initWithFrame:(CGRect){0, 0, self.bounds.size.width, CellHeiht}];
-        CGFloat width = MAX(self.bounds.size.width + 1, _shareActivities.count * (ActivitySpace + ActivityHeight));
-//        [shareScrollView  setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
+        CGFloat width = MAX(self.bounds.size.width + 1, _shareActivities.count * (ActivitySpace + ActivityWeight));
         shareScrollView.contentSize = (CGSize){width, CellHeiht};
         shareScrollView.showsHorizontalScrollIndicator = NO;
         shareScrollView.userInteractionEnabled = YES;
         for (int i = 0; i < _shareActivities.count; i++) {
             G9shareBaseActivity *activity = _shareActivities[i];
-            activity.frame = (CGRect){ActivitySpace + i * (ActivitySpace + ActivityHeight), 10, activity.bounds.size.width, activity.bounds.size.height};
+            activity.frame = (CGRect){ActivitySpace + i * (ActivitySpace + ActivityWeight), 10, activity.bounds.size.width, activity.bounds.size.height};
             activity.block = ^(){
                 [self dismissWithAnimation];
             };
@@ -171,6 +160,22 @@ static const CGFloat CancelButtonHeight = 30;
         }
         [_scrollviewsArray addObject:shareScrollView];
     }
+    
+    UIScrollView *actionScrollView = [[UIScrollView alloc] initWithFrame:(CGRect){0, 0, self.bounds.size.width, CellHeiht}];
+    CGFloat width = MAX(self.bounds.size.width + 1, _actionActivities.count * (ActivitySpace + ActivityWeight));
+    actionScrollView.contentSize = (CGSize){width, CellHeiht};
+    actionScrollView.showsHorizontalScrollIndicator = NO;
+    actionScrollView.userInteractionEnabled = YES;
+    for (int i = 0; i < _actionActivities.count; i++) {
+        G9shareBaseActivity *activity = _actionActivities[i];
+        activity.frame = (CGRect){ActivitySpace + i * (ActivitySpace + ActivityWeight), 10, activity.bounds.size.width, activity.bounds.size.height};
+        activity.block = ^(){
+            [self dismissWithAnimation];
+        };
+        [actionScrollView addSubview:activity];
+    }
+    [_scrollviewsArray addObject:actionScrollView];
+    
 }
 
 - (void)showAnimaiton
@@ -178,7 +183,11 @@ static const CGFloat CancelButtonHeight = 30;
     self.hidden = NO;
     CGFloat y = self.containerView.frame.origin.y;
     self.containerView.frame = (CGRect){0, self.bounds.size.height, self.containerView.bounds.size};
-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:1.0 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:0.5 delay:0
+         usingSpringWithDamping:1.0
+          initialSpringVelocity:1.0
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
         self.containerView.frame = (CGRect){0, y, self.containerView.bounds.size};
     } completion:^(BOOL finished) {
         self.userInteractionEnabled = YES;
@@ -187,8 +196,14 @@ static const CGFloat CancelButtonHeight = 30;
 
 - (void)dismissWithAnimation
 {
-    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.9 options:UIViewAnimationOptionCurveLinear animations:^{
+    [UIView animateWithDuration:0.3
+                          delay:0
+         usingSpringWithDamping:0.9
+          initialSpringVelocity:0.9
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
         self.containerView.frame = (CGRect){0, self.bounds.size.height, self.containerView.bounds.size};
+        self.interateView.alpha = 0;
     } completion:^(BOOL finished) {
         self.userInteractionEnabled = YES;
         [self.btn_cancel removeFromSuperview];
@@ -234,7 +249,7 @@ static const CGFloat CancelButtonHeight = 30;
     UITableViewCell *cell = [[UITableViewCell alloc] init];
     cell.backgroundColor = [UIColor clearColor];
     [cell.contentView addSubview:_scrollviewsArray[indexPath.row]];
-   
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 

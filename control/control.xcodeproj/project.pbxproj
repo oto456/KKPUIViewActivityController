@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE5707BC1B68D0F100CACBA8 /* G9ShareActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5707B91B68D0F100CACBA8 /* G9ShareActivityViewController.m */; };
+		CE5707BD1B68D0F100CACBA8 /* G9shareBaseActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5707BB1B68D0F100CACBA8 /* G9shareBaseActivity.m */; };
 		CEBD92A01B5CF93F00D94C19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD929F1B5CF93F00D94C19 /* main.m */; };
 		CEBD92A31B5CF93F00D94C19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD92A21B5CF93F00D94C19 /* AppDelegate.m */; };
 		CEBD92A61B5CF93F00D94C19 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD92A51B5CF93F00D94C19 /* ViewController.m */; };
@@ -14,8 +16,6 @@
 		CEBD92AB1B5CF93F00D94C19 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEBD92AA1B5CF93F00D94C19 /* Images.xcassets */; };
 		CEBD92AE1B5CF93F00D94C19 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEBD92AC1B5CF93F00D94C19 /* LaunchScreen.xib */; };
 		CEBD92BA1B5CF93F00D94C19 /* controlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD92B91B5CF93F00D94C19 /* controlTests.m */; };
-		CEBD92D51B5DE0FD00D94C19 /* G9ShareActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD92D21B5DE0FD00D94C19 /* G9ShareActivityViewController.m */; };
-		CEBD92D61B5DE0FD00D94C19 /* G9shareBaseActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD92D41B5DE0FD00D94C19 /* G9shareBaseActivity.m */; };
 		CEBD92D91B5DE11F00D94C19 /* TestA.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBD92D81B5DE11F00D94C19 /* TestA.m */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE5707B81B68D0F100CACBA8 /* G9ShareActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G9ShareActivityViewController.h; sourceTree = "<group>"; };
+		CE5707B91B68D0F100CACBA8 /* G9ShareActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G9ShareActivityViewController.m; sourceTree = "<group>"; };
+		CE5707BA1B68D0F100CACBA8 /* G9shareBaseActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G9shareBaseActivity.h; sourceTree = "<group>"; };
+		CE5707BB1B68D0F100CACBA8 /* G9shareBaseActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G9shareBaseActivity.m; sourceTree = "<group>"; };
 		CEBD929A1B5CF93F00D94C19 /* control.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = control.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBD929E1B5CF93F00D94C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEBD929F1B5CF93F00D94C19 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,10 +47,6 @@
 		CEBD92B31B5CF93F00D94C19 /* controlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = controlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBD92B81B5CF93F00D94C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEBD92B91B5CF93F00D94C19 /* controlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = controlTests.m; sourceTree = "<group>"; };
-		CEBD92D11B5DE0FD00D94C19 /* G9ShareActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G9ShareActivityViewController.h; sourceTree = "<group>"; };
-		CEBD92D21B5DE0FD00D94C19 /* G9ShareActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G9ShareActivityViewController.m; sourceTree = "<group>"; };
-		CEBD92D31B5DE0FD00D94C19 /* G9shareBaseActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = G9shareBaseActivity.h; sourceTree = "<group>"; };
-		CEBD92D41B5DE0FD00D94C19 /* G9shareBaseActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = G9shareBaseActivity.m; sourceTree = "<group>"; };
 		CEBD92D71B5DE11F00D94C19 /* TestA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestA.h; sourceTree = "<group>"; };
 		CEBD92D81B5DE11F00D94C19 /* TestA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestA.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,11 +105,11 @@
 		CEBD929D1B5CF93F00D94C19 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CEBD92D11B5DE0FD00D94C19 /* G9ShareActivityViewController.h */,
-				CEBD92D21B5DE0FD00D94C19 /* G9ShareActivityViewController.m */,
-				CEBD92D31B5DE0FD00D94C19 /* G9shareBaseActivity.h */,
-				CEBD92D41B5DE0FD00D94C19 /* G9shareBaseActivity.m */,
 				CEBD929E1B5CF93F00D94C19 /* Info.plist */,
+				CE5707B81B68D0F100CACBA8 /* G9ShareActivityViewController.h */,
+				CE5707B91B68D0F100CACBA8 /* G9ShareActivityViewController.m */,
+				CE5707BA1B68D0F100CACBA8 /* G9shareBaseActivity.h */,
+				CE5707BB1B68D0F100CACBA8 /* G9shareBaseActivity.m */,
 				CEBD929F1B5CF93F00D94C19 /* main.m */,
 				CEBD92D71B5DE11F00D94C19 /* TestA.h */,
 				CEBD92D81B5DE11F00D94C19 /* TestA.m */,
@@ -235,11 +235,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEBD92A61B5CF93F00D94C19 /* ViewController.m in Sources */,
+				CE5707BC1B68D0F100CACBA8 /* G9ShareActivityViewController.m in Sources */,
 				CEBD92A31B5CF93F00D94C19 /* AppDelegate.m in Sources */,
+				CE5707BD1B68D0F100CACBA8 /* G9shareBaseActivity.m in Sources */,
 				CEBD92D91B5DE11F00D94C19 /* TestA.m in Sources */,
-				CEBD92D61B5DE0FD00D94C19 /* G9shareBaseActivity.m in Sources */,
 				CEBD92A01B5CF93F00D94C19 /* main.m in Sources */,
-				CEBD92D51B5DE0FD00D94C19 /* G9ShareActivityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +436,7 @@
 				CEBD92BF1B5CF93F00D94C19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CEBD92C01B5CF93F00D94C19 /* Build configuration list for PBXNativeTarget "controlTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +445,7 @@
 				CEBD92C21B5CF93F00D94C19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,10 +1,15 @@
-//
-//  G9shareActivity.h
-//  control
-//
-//  Created by kakapo on 15/7/20.
-//  Copyright (c) 2015年 kakapo. All rights reserved.
-//
+/*
+ *****************************************************************************
+ * Copyright (C) 2005-2014 UC Mobile Limited. All Rights Reserved
+ * File			: G9shareBaseActivity
+ *
+ * Description	: G9Share
+ *
+ * Author		: liutf@ucweb.com
+ *
+ * History		: Creation, 7/20/15, liutf@ucweb.com, Create the file
+ ******************************************************************************
+ **/
 
 #import <UIKit/UIKit.h>
 
@@ -17,7 +22,15 @@ typedef void(^clickBlock)();
 
 - (NSString *)activityTitle;
 - (UIImage *)activityImage;
-- (BOOL) canPerformWithActivityItems:(NSArray *)activityItems;
-- (UIViewController *) activityViewController;
-- (void) performActivity;
+- (UIViewController *)activityViewController;
+- (void)performActivity;
+
+/**
+ *  按钮是否可点击。默认YES
+ *
+ *  @return YES
+ */
+- (BOOL)buttonEnable;
 @end
+
+

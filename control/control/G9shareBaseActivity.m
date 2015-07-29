@@ -1,19 +1,24 @@
-//
-//  G9shareActivity.m
-//  control
-//
-//  Created by kakapo on 15/7/20.
-//  Copyright (c) 2015年 kakapo. All rights reserved.
-//
+/*
+ *****************************************************************************
+ * Copyright (C) 2005-2014 UC Mobile Limited. All Rights Reserved
+ * File			: G9shareBaseActivity
+ *
+ * Description	: G9Share
+ *
+ * Author		: liutf@ucweb.com
+ *
+ * History		: Creation, 7/20/15, liutf@ucweb.com, Create the file
+ ******************************************************************************
+ **/
 
 #import "G9shareBaseActivity.h"
 
 #define lableFont [UIFont systemFontOfSize:9.0]
-#define LogoHeight (([UIScreen mainScreen].bounds.size.width - 60) / 5)
-#define LableWidth ((([UIScreen mainScreen].bounds.size.width - 60) / 5) + 2)
-#define ActivityHeight (LogoHeight + 25)
-static const CGFloat LogoTitleSpace = 5;
-static const CGFloat LableHeiht = 15;
+#define LogoHeight (([UIScreen mainScreen].bounds.size.width - 80) / 5)
+#define LableWidth ((([UIScreen mainScreen].bounds.size.width - 80) / 5) + 2)
+#define ActivityHeight (LogoHeight + 35)
+static const CGFloat LogoTitleSpace = 3;
+static const CGFloat LableHeiht = 30;
 
 @interface G9shareBaseActivity ()
 
@@ -28,12 +33,14 @@ static const CGFloat LableHeiht = 15;
 {
     if (self = [super initWithFrame:(CGRect){0, 0, LableWidth, (LogoHeight + LogoTitleSpace + LableHeiht)}]) {
         [self configUI];
-        self.title.text = [self activityTitle];
         if ([self activityImage]) {
-            [self.logo setImage:[self activityImage] forState:UIControlStateNormal];
+            [self.logo setBackgroundImage:[self activityImage] forState:UIControlStateNormal];
         }else{
-        [self.logo setImage:[UIImage imageNamed:@"60pt_"] forState:UIControlStateNormal];
+        [self.logo setBackgroundImage:[UIImage imageNamed:@"about_ico"] forState:UIControlStateNormal];
         }
+        self.logo.enabled = [self buttonEnable];
+        [self.title setText:[self activityTitle]];
+        self.title.textAlignment = NSTextAlignmentCenter;
     }
     return self;
 }
@@ -53,18 +60,15 @@ static const CGFloat LableHeiht = 15;
     [_logo addTarget:self action:@selector(logoClick:) forControlEvents:UIControlEventTouchUpInside];
     _logo.layer.cornerRadius = 5.0;
     _logo.userInteractionEnabled = YES;
-    _logo.clipsToBounds = YES;
     
     _title = [[UILabel alloc] initWithFrame:(CGRect){0, LogoHeight + LogoTitleSpace, LableWidth, LableHeiht}];
     _title.font = lableFont;
     _title.textAlignment = NSTextAlignmentCenter;
+    _title.numberOfLines = 2;
     
     [self addSubview:_logo];
     [self addSubview:_title];
 }
-
-
-
                                 
 - (void)logoClick:(id)sender
 {
@@ -85,11 +89,6 @@ static const CGFloat LableHeiht = 15;
     return nil;
 }
 
-- (BOOL) canPerformWithActivityItems:(NSArray *)activityItems
-{
-    return YES;
-}
-
 - (UIViewController *) activityViewController {
     return nil;
 }
@@ -98,6 +97,14 @@ static const CGFloat LableHeiht = 15;
   
 }
 
-
+- (BOOL)buttonEnable
+{
+    return YES;
+}
 
 @end
+
+
+
+
+
